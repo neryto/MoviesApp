@@ -43,6 +43,7 @@ data class PlayingNowItem(
             this.id,
             this.overview,
             this.posterPath,
+            this.backdropPath,
             this.releaseDate,
             this.title,
             this.video,
