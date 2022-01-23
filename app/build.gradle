@@ -70,5 +70,8 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     //Flexbox
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
+    //Youtube
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:11.0.1'
+
 
 }

@@ -5,12 +5,12 @@ import com.nery.bustos.moviesbasemodule.utils.Utils.isOnline
 import com.nery.bustos.mymovies.App
 import com.nery.bustos.mymovies.playingnow.data.PlayingNowItemView
 import com.nery.bustos.mymovies.playingnow.data.PlayingNowRepository
+import com.nery.bustos.mymovies.playingnow.data.VideoItemView
 import com.nery.bustos.mymovies.playingnow.di.PlayingNowProviderEntryPoint
 import dagger.hilt.android.EntryPointAccessors
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.onEach
 
 class PlayingNowUseCaseImpl : PlayingNowUseCase {
 
@@ -43,5 +43,24 @@ class PlayingNowUseCaseImpl : PlayingNowUseCase {
         }
 
 
+    }
+
+    override suspend fun fetchVideo(id: Int): Flow<DataState<List<VideoItemView>>> = flow {
+        repository.fetchVideo(id).collect {
+            when (it) {
+                is DataState.Success -> {
+                    emit(DataState.Success(
+                        it.data.lsVideos.filter { video ->
+                            video.site == "YouTube"
+                        }.map { videoYoutube ->
+                            videoYoutube.toVideoItemView()
+                        }
+                    )
+                    )
+                }
+                is DataState.Error -> emit(DataState.Error(it.message))
+                DataState.Loading -> emit(DataState.Loading)
+            }
+        }
     }
 }

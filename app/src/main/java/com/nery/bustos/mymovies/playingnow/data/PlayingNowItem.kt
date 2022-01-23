@@ -38,16 +38,14 @@ data class PlayingNowItem(
     val voteAverage: Double,
 
     ) {
-    fun toItemView(): PlayingNowItemView{
-        return PlayingNowItemView(
-            this.id,
-            this.overview,
-            this.posterPath,
-            this.backdropPath,
-            this.releaseDate,
-            this.title,
-            this.video,
-            this.voteAverage
-        )
-    }
+    fun toItemView(): PlayingNowItemView = PlayingNowItemView(
+        this.id,
+        this.overview,
+        this.posterPath,
+        this.backdropPath,
+        this.releaseDate,
+        this.title,
+        this.video,
+        this.voteAverage
+    )
 }

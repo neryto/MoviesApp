@@ -1,16 +1,12 @@
 package com.nery.bustos.mymovies
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import com.airbnb.lottie.LottieAnimationView
-import com.bumptech.glide.Glide
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.nery.bustos.moviesbasemodule.network.Api
 import com.nery.bustos.moviesbasemodule.presentation.BaseActivity
-import com.nery.bustos.mymovies.databinding.ItemDetailBinding
-import com.nery.bustos.mymovies.playingnow.data.PlayingNowItemView
 import com.nery.bustos.mymovies.playingnow.presentation.ui.FragmentPlayingNow
+import com.nery.bustos.mymovies.playingnow.presentation.ui.VideoActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,20 +25,13 @@ class MainActivity : BaseActivity(), FragmentPlayingNow.FragmentPlayingNowHandle
             .newInstance(this), tagFragmentPlayingNow)
     }
 
-    override fun showDetail(item: PlayingNowItemView) {
-         BottomSheetDialog(this).apply {
-            val view : View = layoutInflater
-                .inflate(R.layout.item_detail,null,false)
-            val binding = ItemDetailBinding.bind(view).apply {
-                overview.text = item.overview
-                Glide.with(this.root).load("${Api.IMAGE_URL}${item.backdropPath}")
-                    .into(banner)
-            }
-            setCancelable(true)
-            setContentView(binding.root)
-            show()
+    override fun showVideo(video: String) {
+        Intent(this,VideoActivity::class.java).apply {
+            putExtra("video",video)
+            startActivity(this)
         }
     }
+
 
     override fun showLottie(show: Boolean) {
         with(lottie) {

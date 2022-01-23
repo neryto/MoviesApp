@@ -50,6 +50,25 @@ class PlayingNowView
                 DataState.Loading -> actionHandler(PlayingNowActions.SHOW_LOTTIE,true)
             }
         })
+
+        viewModel.fetchVideo.observe(lifecycleOwner,{
+            when(it){
+                is DataState.Success -> {
+                    actionHandler(PlayingNowActions.SHOW_VIDEO_LOADING,false)
+                   if (it.data.isEmpty())
+                        actionHandler(PlayingNowActions.SHOW_ERROR,"Video not available")
+                    else
+                        actionHandler(PlayingNowActions.SHOW_VIDEO,it.data.first().key)
+
+                }
+                is DataState.Error -> {
+                    actionHandler(PlayingNowActions.SHOW_VIDEO_LOADING,false)
+                    actionHandler(PlayingNowActions.SHOW_ERROR,it.message)
+                }
+                DataState.Loading ->
+                    actionHandler(PlayingNowActions.SHOW_VIDEO_LOADING,true)
+            }
+        })
     }
 
     override fun setupViewBinding(view: View): PlayingNowFragmentBinding {
@@ -60,6 +79,10 @@ class PlayingNowView
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
         viewModel.fetchPlayingNow()
+    }
+
+    fun fetchVideo(id: Int) {
+        viewModel.fetchVideo(id)
     }
 
     private val onItemClicked : (item: PlayingNowItemView)->Unit={

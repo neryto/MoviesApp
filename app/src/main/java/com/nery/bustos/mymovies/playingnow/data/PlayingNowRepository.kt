@@ -6,4 +6,5 @@ import kotlinx.coroutines.flow.Flow
 interface PlayingNowRepository {
     suspend fun fetchPlayingNowRemote() : Flow<DataState<PlayingNowResponse>>
     suspend fun fetchPlayingNowLocal()
+    suspend fun fetchVideo(id:Int) : Flow<DataState<VideoResponse>>
 }

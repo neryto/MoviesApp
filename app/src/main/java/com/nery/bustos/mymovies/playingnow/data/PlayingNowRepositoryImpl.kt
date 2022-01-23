@@ -23,13 +23,17 @@ class PlayingNowRepositoryImpl : PlayingNowRepository {
 
     override suspend fun fetchPlayingNowRemote(): Flow<DataState<PlayingNowResponse>> {
         val type = object : TypeToken<PlayingNowResponse>() {}.type
-
         return ResponseToFlow<PlayingNowResponse>()
             .getFlow(service.getPlayingNowList(),type)
-
     }
 
     override suspend fun fetchPlayingNowLocal() {
 
+    }
+
+    override suspend fun fetchVideo(id:Int) : Flow<DataState<VideoResponse>> {
+        val type = object : TypeToken<VideoResponse>() {}.type
+        return ResponseToFlow<VideoResponse>()
+            .getFlow(service.getVideo(id),type)
     }
 }
