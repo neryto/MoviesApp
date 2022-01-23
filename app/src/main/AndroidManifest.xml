@@ -23,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".playingnow.presentation.ui.VideoActivity"
+        <activity android:name="com.nery.bustos.mymovies.presentation.ui.VideoActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.MyMovies.noActionBar"
             />

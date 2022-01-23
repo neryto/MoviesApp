@@ -1,8 +1,8 @@
-package com.nery.bustos.mymovies.playingnow.data
+package com.nery.bustos.mymovies.data
 
 import com.google.gson.annotations.SerializedName
 
-data class PlayingNowResponse(
+data class MovieResponse(
     @SerializedName("page")
     val page : Int,
 
@@ -13,6 +13,6 @@ data class PlayingNowResponse(
     val totalResults : Int,
 
     @SerializedName("results")
-    val lsPlayingNow : List<PlayingNowItem>
+    val lsPlayingNow : List<MovieItem>
 
     )

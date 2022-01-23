@@ -1,4 +1,4 @@
-package com.nery.bustos.mymovies.playingnow.presentation.ui
+package com.nery.bustos.mymovies.presentation.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,19 +9,19 @@ import com.nery.bustos.moviesbasemodule.network.Api
 import com.nery.bustos.mymovies.App
 import com.nery.bustos.mymovies.R
 import com.nery.bustos.mymovies.databinding.ItemMovieBinding
-import com.nery.bustos.mymovies.playingnow.data.PlayingNowItemView
+import com.nery.bustos.mymovies.data.MovieItemView
 
-class PlayingNowAdapter
+class MovieAdapter
 constructor(
-    private val ls: List<PlayingNowItemView>,
-    private val onItemClicked: (item: PlayingNowItemView) -> Unit) :
-    RecyclerView.Adapter<PlayingNowAdapter.PlayingNowViewHolder>() {
+    private val ls: List<MovieItemView>,
+    private val onItemClicked: (item: MovieItemView) -> Unit) :
+    RecyclerView.Adapter<MovieAdapter.PlayingNowViewHolder>() {
 
     class PlayingNowViewHolder(
         private val binding: ItemMovieBinding
     ) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(itemView: PlayingNowItemView,onItemClicked: (item: PlayingNowItemView) -> Unit) {
+        fun bind(itemView: MovieItemView, onItemClicked: (item: MovieItemView) -> Unit) {
             binding.apply {
                 root.setOnClickListener {
                     onItemClicked(itemView)

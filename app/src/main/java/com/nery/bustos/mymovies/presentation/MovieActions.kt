@@ -1,6 +1,6 @@
-package com.nery.bustos.mymovies.playingnow.presentation
+package com.nery.bustos.mymovies.presentation
 
-enum class PlayingNowActions {
+enum class MovieActions {
     SHOW_LOTTIE,
     SHOW_ERROR,
     SHOW_DETAIL,

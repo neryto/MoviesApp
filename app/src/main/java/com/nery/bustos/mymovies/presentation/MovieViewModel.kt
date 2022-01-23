@@ -1,4 +1,4 @@
-package com.nery.bustos.mymovies.playingnow.presentation
+package com.nery.bustos.mymovies.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,19 +6,19 @@ import androidx.lifecycle.viewModelScope
 import com.nery.bustos.moviesbasemodule.DataState
 import com.nery.bustos.moviesbasemodule.presentation.BaseViewModel
 import com.nery.bustos.mymovies.App
-import com.nery.bustos.mymovies.playingnow.data.PlayingNowItemView
-import com.nery.bustos.mymovies.playingnow.data.VideoItemView
-import com.nery.bustos.mymovies.playingnow.di.PlayingNowProviderEntryPoint
-import com.nery.bustos.mymovies.playingnow.domain.PlayingNowUseCase
+import com.nery.bustos.mymovies.data.MovieItemView
+import com.nery.bustos.mymovies.data.VideoItemView
+import com.nery.bustos.mymovies.di.MovieProviderEntryPoint
+import com.nery.bustos.mymovies.domain.MovieUseCase
 import dagger.hilt.android.EntryPointAccessors
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 
-class PlayingNowViewModel
-    : BaseViewModel<List<PlayingNowItemView>>() {
+class MovieViewModel
+    : BaseViewModel<List<MovieItemView>>() {
 
-    private var useCase: PlayingNowUseCase
+    private var useCase: MovieUseCase
     private val _fetchVideo = MutableLiveData<DataState<List<VideoItemView>>>()
     val fetchVideo: LiveData<DataState<List<VideoItemView>>>
         get() = _fetchVideo
@@ -28,7 +28,7 @@ class PlayingNowViewModel
         val hiltEntryPoint = EntryPointAccessors
             .fromApplication(
                 App.applicationContext(),
-                PlayingNowProviderEntryPoint.ProviderUseCase::class.java
+                MovieProviderEntryPoint.ProviderUseCase::class.java
             )
         useCase = hiltEntryPoint.useCase()
     }

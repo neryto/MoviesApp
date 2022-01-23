@@ -5,15 +5,15 @@ import android.os.Bundle
 import android.view.View
 import com.airbnb.lottie.LottieAnimationView
 import com.nery.bustos.moviesbasemodule.presentation.BaseActivity
-import com.nery.bustos.mymovies.playingnow.presentation.ui.FragmentPlayingNow
-import com.nery.bustos.mymovies.playingnow.presentation.ui.VideoActivity
+import com.nery.bustos.mymovies.presentation.ui.FragmentMovie
+import com.nery.bustos.mymovies.presentation.ui.VideoActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : BaseActivity(), FragmentPlayingNow.FragmentPlayingNowHandler {
+class MainActivity : BaseActivity(), FragmentMovie.FragmentPlayingNowHandler {
 
     private val idContainer = R.id.main_container
-    private val tagFragmentPlayingNow = FragmentPlayingNow::class.java.name
+    private val tagFragmentPlayingNow = FragmentMovie::class.java.name
 
     lateinit var lottie: LottieAnimationView
 
@@ -21,7 +21,7 @@ class MainActivity : BaseActivity(), FragmentPlayingNow.FragmentPlayingNowHandle
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         lottie = findViewById(R.id.lottie)
-        addFragment(idContainer, FragmentPlayingNow
+        addFragment(idContainer, FragmentMovie
             .newInstance(this), tagFragmentPlayingNow)
     }
 

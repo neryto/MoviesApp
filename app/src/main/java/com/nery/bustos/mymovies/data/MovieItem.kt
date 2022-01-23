@@ -1,8 +1,8 @@
-package com.nery.bustos.mymovies.playingnow.data
+package com.nery.bustos.mymovies.data
 
 import com.google.gson.annotations.SerializedName
 
-data class PlayingNowItem(
+data class MovieItem(
 
     @SerializedName("adult")
     val isAdult: Boolean,
@@ -38,7 +38,7 @@ data class PlayingNowItem(
     val voteAverage: Double,
 
     ) {
-    fun toItemView(): PlayingNowItemView = PlayingNowItemView(
+    fun toItemView(): MovieItemView = MovieItemView(
         this.id,
         this.overview,
         this.posterPath,

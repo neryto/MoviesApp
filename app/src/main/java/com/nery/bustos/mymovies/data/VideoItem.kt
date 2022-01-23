@@ -1,4 +1,4 @@
-package com.nery.bustos.mymovies.playingnow.data
+package com.nery.bustos.mymovies.data
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,6 +1,6 @@
-package com.nery.bustos.mymovies.playingnow.data
+package com.nery.bustos.mymovies.data
 
-data class PlayingNowItemView(
+data class MovieItemView(
     val id: Int,
     val overview: String,
     val posterPath: String,

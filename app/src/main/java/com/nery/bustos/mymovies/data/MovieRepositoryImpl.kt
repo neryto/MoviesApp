@@ -1,29 +1,29 @@
-package com.nery.bustos.mymovies.playingnow.data
+package com.nery.bustos.mymovies.data
 
 import com.google.gson.reflect.TypeToken
 import com.nery.bustos.moviesbasemodule.DataState
 import com.nery.bustos.moviesbasemodule.network.ResponseToFlow
 import com.nery.bustos.mymovies.App
-import com.nery.bustos.mymovies.playingnow.di.PlayingNowProviderEntryPoint
+import com.nery.bustos.mymovies.di.MovieProviderEntryPoint
 import dagger.hilt.android.EntryPointAccessors
 import kotlinx.coroutines.flow.Flow
 
-class PlayingNowRepositoryImpl : PlayingNowRepository {
+class MovieRepositoryImpl : MovieRepository {
 
-    private val service: PlayingNowApi
+    private val service: MovieApi
 
     init {
         val hiltEntryPoint = EntryPointAccessors
             .fromApplication(
                 App.applicationContext(),
-                PlayingNowProviderEntryPoint.ProviderService::class.java
+                MovieProviderEntryPoint.ProviderService::class.java
             )
         service = hiltEntryPoint.service()
     }
 
-    override suspend fun fetchPlayingNowRemote(): Flow<DataState<PlayingNowResponse>> {
-        val type = object : TypeToken<PlayingNowResponse>() {}.type
-        return ResponseToFlow<PlayingNowResponse>()
+    override suspend fun fetchPlayingNowRemote(): Flow<DataState<MovieResponse>> {
+        val type = object : TypeToken<MovieResponse>() {}.type
+        return ResponseToFlow<MovieResponse>()
             .getFlow(service.getPlayingNowList(),type)
     }
 

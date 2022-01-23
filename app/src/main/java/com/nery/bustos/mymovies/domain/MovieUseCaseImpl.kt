@@ -1,31 +1,31 @@
-package com.nery.bustos.mymovies.playingnow.domain
+package com.nery.bustos.mymovies.domain
 
 import com.nery.bustos.moviesbasemodule.DataState
 import com.nery.bustos.moviesbasemodule.utils.Utils.isOnline
 import com.nery.bustos.mymovies.App
-import com.nery.bustos.mymovies.playingnow.data.PlayingNowItemView
-import com.nery.bustos.mymovies.playingnow.data.PlayingNowRepository
-import com.nery.bustos.mymovies.playingnow.data.VideoItemView
-import com.nery.bustos.mymovies.playingnow.di.PlayingNowProviderEntryPoint
+import com.nery.bustos.mymovies.data.MovieItemView
+import com.nery.bustos.mymovies.data.MovieRepository
+import com.nery.bustos.mymovies.data.VideoItemView
+import com.nery.bustos.mymovies.di.MovieProviderEntryPoint
 import dagger.hilt.android.EntryPointAccessors
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 
-class PlayingNowUseCaseImpl : PlayingNowUseCase {
+class MovieUseCaseImpl : MovieUseCase {
 
-    var repository: PlayingNowRepository
+    var repository: MovieRepository
 
     init {
         val hiltEntryPoint = EntryPointAccessors
             .fromApplication(
                 App.applicationContext(),
-                PlayingNowProviderEntryPoint.ProviderRepository::class.java
+                MovieProviderEntryPoint.ProviderRepository::class.java
             )
         repository = hiltEntryPoint.repository()
     }
 
-    override suspend fun fetchPlayingNow(): Flow<DataState<List<PlayingNowItemView>>> = flow {
+    override suspend fun fetchPlayingNow(): Flow<DataState<List<MovieItemView>>> = flow {
         with(repository) {
             if (isOnline(App.applicationContext())) {
                 fetchPlayingNowRemote().collect {

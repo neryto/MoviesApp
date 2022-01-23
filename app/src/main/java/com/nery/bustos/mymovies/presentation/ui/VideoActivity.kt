@@ -1,4 +1,4 @@
-package com.nery.bustos.mymovies.playingnow.presentation.ui
+package com.nery.bustos.mymovies.presentation.ui
 
 import android.os.Bundle
 import com.nery.bustos.moviesbasemodule.presentation.BaseActivity
