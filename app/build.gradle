@@ -72,6 +72,9 @@ dependencies {
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
     //Youtube
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:11.0.1'
+    //Room
+    implementation "androidx.room:room-ktx:2.3.0"
+    kapt "androidx.room:room-compiler:2.3.0"
 
 
 }

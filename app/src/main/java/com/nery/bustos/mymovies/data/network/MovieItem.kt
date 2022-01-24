@@ -1,6 +1,8 @@
-package com.nery.bustos.mymovies.data
+package com.nery.bustos.mymovies.data.network
 
 import com.google.gson.annotations.SerializedName
+import com.nery.bustos.mymovies.presentation.ui.MovieItemView
+import com.nery.bustos.mymovies.data.db.MovieEntity
 
 data class MovieItem(
 
@@ -42,7 +44,22 @@ data class MovieItem(
         this.id,
         this.overview,
         this.posterPath,
-        this.backdropPath?:"",
+        this.backdropPath ?: "",
+        this.releaseDate,
+        this.title,
+        this.video,
+        this.voteAverage
+    )
+
+    fun toEntity(type: Int): MovieEntity = MovieEntity(
+        this.id,
+        type,
+        this.isAdult,
+        this.backdropPath,
+        this.originalLanguage,
+        this.originalTitle,
+        this.overview,
+        this.posterPath,
         this.releaseDate,
         this.title,
         this.video,

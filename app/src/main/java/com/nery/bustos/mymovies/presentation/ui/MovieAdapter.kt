@@ -9,7 +9,6 @@ import com.nery.bustos.moviesbasemodule.network.Api
 import com.nery.bustos.mymovies.App
 import com.nery.bustos.mymovies.R
 import com.nery.bustos.mymovies.databinding.ItemMovieBinding
-import com.nery.bustos.mymovies.data.MovieItemView
 
 class MovieAdapter
 constructor(

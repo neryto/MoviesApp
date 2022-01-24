@@ -7,7 +7,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.nery.bustos.moviesbasemodule.network.Api
 import com.nery.bustos.moviesbasemodule.presentation.BaseFragment
 import com.nery.bustos.mymovies.R
-import com.nery.bustos.mymovies.data.MovieItemView
 import com.nery.bustos.mymovies.databinding.ItemDetailBinding
 import com.nery.bustos.mymovies.presentation.FragmentHandler
 import com.nery.bustos.mymovies.presentation.MovieActions

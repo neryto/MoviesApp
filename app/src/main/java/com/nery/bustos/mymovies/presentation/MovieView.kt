@@ -9,7 +9,7 @@ import com.nery.bustos.moviesbasemodule.DataState
 import com.nery.bustos.moviesbasemodule.presentation.BaseView
 import com.nery.bustos.mymovies.App
 import com.nery.bustos.mymovies.databinding.PlayingNowFragmentBinding
-import com.nery.bustos.mymovies.data.MovieItemView
+import com.nery.bustos.mymovies.presentation.ui.MovieItemView
 import com.nery.bustos.mymovies.presentation.ui.MovieAdapter
 
 

@@ -26,6 +26,7 @@ class MainActivity : BaseActivity(), FragmentMovie.FragmentPlayingNowHandler {
         val navigationView: BottomNavigationView =
             findViewById(R.id.bottom_navigation)
 
+        title = getString(R.string.playing_now_title)
         addFragment(
             idContainer, FragmentMovie
                 .newInstance(
@@ -39,6 +40,7 @@ class MainActivity : BaseActivity(), FragmentMovie.FragmentPlayingNowHandler {
                 removeCurrentFragment()
                 when (item.itemId) {
                     R.id.page_1 -> {
+                        title = getString(R.string.playing_now_title)
                         addFragment(
                             idContainer, FragmentMovie
                                 .newInstance(
@@ -48,6 +50,7 @@ class MainActivity : BaseActivity(), FragmentMovie.FragmentPlayingNowHandler {
                         )
                     }
                     R.id.page_2 -> {
+                        title = getString(R.string.most_popular_title)
                         addFragment(
                             idContainer, FragmentMovie
                                 .newInstance(

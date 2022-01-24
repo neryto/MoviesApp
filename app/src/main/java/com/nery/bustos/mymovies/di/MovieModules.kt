@@ -1,9 +1,12 @@
 package com.nery.bustos.mymovies.di
 
+import androidx.room.Room
 import com.nery.bustos.moviesbasemodule.network.Api
-import com.nery.bustos.mymovies.data.MovieApi
+import com.nery.bustos.mymovies.App
+import com.nery.bustos.mymovies.data.network.MovieApi
 import com.nery.bustos.mymovies.data.MovieRepository
 import com.nery.bustos.mymovies.data.MovieRepositoryImpl
+import com.nery.bustos.mymovies.data.db.MovieDataBase
 import com.nery.bustos.mymovies.domain.MovieUseCase
 import com.nery.bustos.mymovies.domain.MovieUseCaseImpl
 import com.nery.bustos.mymovies.presentation.MovieView
@@ -15,31 +18,44 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(FragmentComponent::class)
-class PlayingNowViewModule {
+class MovieViewModule {
     @Provides
-    fun playingNowViewProvider() : MovieView = MovieView()
+    fun movieViewProvider(): MovieView = MovieView()
 
 }
 
 
 @Module
 @InstallIn(SingletonComponent::class)
-class PlayingNowUseCaseModule{
+class MovieUseCaseModule {
     @Provides
-    fun playingNowUseCaseProvider() : MovieUseCase = MovieUseCaseImpl()
+    fun movieUseCaseProvider(): MovieUseCase = MovieUseCaseImpl()
 }
 
 @Module
 @InstallIn(SingletonComponent::class)
-class PlayingNowRepositoryModule{
+class MovieRepositoryModule {
     @Provides
-    fun playingNowRepositoryProvider() : MovieRepository = MovieRepositoryImpl()
+    fun movieRepositoryProvider(): MovieRepository = MovieRepositoryImpl()
 }
 
 @Module
 @InstallIn(SingletonComponent::class)
-class PlayingNowServiceModule{
+class MovieServiceModule {
     @Provides
-    fun playingNowServiceProvider() : MovieApi = Api.createApi(MovieApi::class.java)
+    fun movieServiceProvider(): MovieApi = Api.createApi(MovieApi::class.java)
+
+}
+
+@Module
+@InstallIn(SingletonComponent::class)
+class MovieDataBaseModule {
+    @Provides
+    fun movieDataBaseProvider(): MovieDataBase =
+        Room.databaseBuilder(
+            App.applicationContext(),
+            MovieDataBase::class.java,
+            "MovieDataBase"
+        ).build()
 
 }

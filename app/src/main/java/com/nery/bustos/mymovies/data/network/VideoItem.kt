@@ -1,6 +1,7 @@
-package com.nery.bustos.mymovies.data
+package com.nery.bustos.mymovies.data.network
 
 import com.google.gson.annotations.SerializedName
+import com.nery.bustos.mymovies.presentation.ui.VideoItemView
 
 data class VideoItem(
     @SerializedName("iso_3166_1")

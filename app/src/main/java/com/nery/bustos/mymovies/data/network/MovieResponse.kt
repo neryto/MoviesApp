@@ -1,4 +1,4 @@
-package com.nery.bustos.mymovies.data
+package com.nery.bustos.mymovies.data.network
 
 import com.google.gson.annotations.SerializedName
 

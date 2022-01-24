@@ -6,8 +6,8 @@ import androidx.lifecycle.viewModelScope
 import com.nery.bustos.moviesbasemodule.DataState
 import com.nery.bustos.moviesbasemodule.presentation.BaseViewModel
 import com.nery.bustos.mymovies.App
-import com.nery.bustos.mymovies.data.MovieItemView
-import com.nery.bustos.mymovies.data.VideoItemView
+import com.nery.bustos.mymovies.presentation.ui.MovieItemView
+import com.nery.bustos.mymovies.presentation.ui.VideoItemView
 import com.nery.bustos.mymovies.di.MovieProviderEntryPoint
 import com.nery.bustos.mymovies.domain.MovieUseCase
 import dagger.hilt.android.EntryPointAccessors

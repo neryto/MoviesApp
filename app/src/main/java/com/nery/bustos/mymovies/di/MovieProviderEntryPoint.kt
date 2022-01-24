@@ -1,7 +1,8 @@
 package com.nery.bustos.mymovies.di
 
-import com.nery.bustos.mymovies.data.MovieApi
+import com.nery.bustos.mymovies.data.network.MovieApi
 import com.nery.bustos.mymovies.data.MovieRepository
+import com.nery.bustos.mymovies.data.db.MovieDataBase
 import com.nery.bustos.mymovies.domain.MovieUseCase
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
@@ -25,6 +26,12 @@ class MovieProviderEntryPoint {
     @InstallIn(SingletonComponent::class)
     interface ProviderService {
         fun service(): MovieApi
+    }
+
+    @EntryPoint
+    @InstallIn(SingletonComponent::class)
+    interface ProviderDataBase {
+        fun dataBase(): MovieDataBase
     }
 
 }
