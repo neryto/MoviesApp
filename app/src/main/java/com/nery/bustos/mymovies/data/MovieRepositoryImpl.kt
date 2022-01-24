@@ -10,7 +10,7 @@ import com.nery.bustos.mymovies.data.network.MovieApi
 import com.nery.bustos.mymovies.data.network.MovieResponse
 import com.nery.bustos.mymovies.data.network.VideoResponse
 import com.nery.bustos.mymovies.di.MovieProviderEntryPoint
-import com.nery.bustos.mymovies.presentation.TypeMovie
+import com.nery.bustos.mymovies.TypeMovie
 import dagger.hilt.android.EntryPointAccessors
 import kotlinx.coroutines.flow.Flow
 

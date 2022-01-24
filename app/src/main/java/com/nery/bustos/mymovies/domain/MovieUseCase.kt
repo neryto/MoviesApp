@@ -4,7 +4,7 @@ import com.nery.bustos.moviesbasemodule.DataState
 import com.nery.bustos.mymovies.presentation.ui.MovieItemView
 import com.nery.bustos.mymovies.presentation.ui.VideoItemView
 import com.nery.bustos.mymovies.data.db.MovieEntity
-import com.nery.bustos.mymovies.presentation.TypeMovie
+import com.nery.bustos.mymovies.TypeMovie
 import kotlinx.coroutines.flow.Flow
 
 interface MovieUseCase {

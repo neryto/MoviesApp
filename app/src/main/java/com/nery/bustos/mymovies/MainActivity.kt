@@ -6,7 +6,6 @@ import android.view.View
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.nery.bustos.moviesbasemodule.presentation.BaseActivity
-import com.nery.bustos.mymovies.presentation.TypeMovie
 import com.nery.bustos.mymovies.presentation.ui.FragmentMovie
 import com.nery.bustos.mymovies.presentation.ui.VideoActivity
 import dagger.hilt.android.AndroidEntryPoint

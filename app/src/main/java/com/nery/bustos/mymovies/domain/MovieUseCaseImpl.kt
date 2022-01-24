@@ -9,7 +9,7 @@ import com.nery.bustos.mymovies.presentation.ui.VideoItemView
 import com.nery.bustos.mymovies.data.db.MovieDataBase
 import com.nery.bustos.mymovies.data.db.MovieEntity
 import com.nery.bustos.mymovies.di.MovieProviderEntryPoint
-import com.nery.bustos.mymovies.presentation.TypeMovie
+import com.nery.bustos.mymovies.TypeMovie
 import dagger.hilt.android.EntryPointAccessors
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope

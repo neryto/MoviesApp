@@ -8,10 +8,8 @@ import com.nery.bustos.moviesbasemodule.network.Api
 import com.nery.bustos.moviesbasemodule.presentation.BaseFragment
 import com.nery.bustos.mymovies.R
 import com.nery.bustos.mymovies.databinding.ItemDetailBinding
-import com.nery.bustos.mymovies.presentation.FragmentHandler
-import com.nery.bustos.mymovies.presentation.MovieActions
 import com.nery.bustos.mymovies.presentation.MovieView
-import com.nery.bustos.mymovies.presentation.TypeMovie
+import com.nery.bustos.mymovies.TypeMovie
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
