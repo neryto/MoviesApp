@@ -18,11 +18,14 @@ class MovieView
 
     private val viewModel: MovieViewModel =
         ViewModelProvider(this)[MovieViewModel::class.java]
+    lateinit var type: TypeMovie
 
     fun initPlayingNowView(
         lifecycleOwner: LifecycleOwner,
+        type: TypeMovie,
         actionHandler: (action: MovieActions, value: Any?) -> Unit
     ) {
+        this.type = type
         super.init(lifecycleOwner, actionHandler)
     }
 
@@ -75,7 +78,7 @@ class MovieView
 
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
-        viewModel.fetchPlayingNow()
+        viewModel.fetchMovie(type)
     }
 
     fun fetchVideo(id: Int) {

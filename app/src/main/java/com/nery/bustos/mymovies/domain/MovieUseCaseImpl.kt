@@ -7,6 +7,7 @@ import com.nery.bustos.mymovies.data.MovieItemView
 import com.nery.bustos.mymovies.data.MovieRepository
 import com.nery.bustos.mymovies.data.VideoItemView
 import com.nery.bustos.mymovies.di.MovieProviderEntryPoint
+import com.nery.bustos.mymovies.presentation.TypeMovie
 import dagger.hilt.android.EntryPointAccessors
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
@@ -25,10 +26,10 @@ class MovieUseCaseImpl : MovieUseCase {
         repository = hiltEntryPoint.repository()
     }
 
-    override suspend fun fetchPlayingNow(): Flow<DataState<List<MovieItemView>>> = flow {
+    override suspend fun fetchMovie(type: TypeMovie): Flow<DataState<List<MovieItemView>>> = flow {
         with(repository) {
             if (isOnline(App.applicationContext())) {
-                fetchPlayingNowRemote().collect {
+                fetchMovieRemote(type).collect {
                     when (it) {
                         is DataState.Success -> emit(DataState.Success(
                             it.data.lsPlayingNow.map { ls ->
@@ -39,7 +40,7 @@ class MovieUseCaseImpl : MovieUseCase {
                         DataState.Loading -> emit(DataState.Loading)
                     }
                 }
-            } else fetchPlayingNowRemote()
+            } else fetchMovieLocal()
         }
 
 

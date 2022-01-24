@@ -8,7 +8,7 @@ data class MovieItem(
     val isAdult: Boolean,
 
     @SerializedName("backdrop_path")
-    val backdropPath: String,
+    val backdropPath: String?,
 
     @SerializedName("id")
     val id: Int,
@@ -42,7 +42,7 @@ data class MovieItem(
         this.id,
         this.overview,
         this.posterPath,
-        this.backdropPath,
+        this.backdropPath?:"",
         this.releaseDate,
         this.title,
         this.video,

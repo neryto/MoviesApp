@@ -34,9 +34,9 @@ class MovieViewModel
     }
 
 
-    fun fetchPlayingNow() {
+    fun fetchMovie(type: TypeMovie) {
         viewModelScope.launch {
-            useCase.fetchPlayingNow().collect {
+            useCase.fetchMovie(type).collect {
                 _fetchInfo.postValue(it)
             }
         }

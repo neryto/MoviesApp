@@ -7,11 +7,12 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.nery.bustos.moviesbasemodule.network.Api
 import com.nery.bustos.moviesbasemodule.presentation.BaseFragment
 import com.nery.bustos.mymovies.R
-import com.nery.bustos.mymovies.databinding.ItemDetailBinding
 import com.nery.bustos.mymovies.data.MovieItemView
+import com.nery.bustos.mymovies.databinding.ItemDetailBinding
 import com.nery.bustos.mymovies.presentation.FragmentHandler
 import com.nery.bustos.mymovies.presentation.MovieActions
 import com.nery.bustos.mymovies.presentation.MovieView
+import com.nery.bustos.mymovies.presentation.TypeMovie
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -20,9 +21,13 @@ class FragmentMovie
     : BaseFragment() {
 
     companion object {
-        fun newInstance(handler: FragmentPlayingNowHandler): FragmentMovie =
+        fun newInstance(
+            handler: FragmentPlayingNowHandler,
+            type: TypeMovie
+        ): FragmentMovie =
             FragmentMovie().apply {
                 this.handler = handler
+                this.typeMovie = type
             }
     }
 
@@ -33,13 +38,14 @@ class FragmentMovie
     @Inject
     lateinit var mView: MovieView
     lateinit var handler: FragmentPlayingNowHandler
+    lateinit var typeMovie: TypeMovie
 
     override fun setLayout(): Int = R.layout.playing_now_fragment
 
     override fun setupView(view: View) {
         mView.apply {
             setupViewBinding(view)
-            initPlayingNowView(this@FragmentMovie, actionHandler)
+            initPlayingNowView(this@FragmentMovie, typeMovie, actionHandler)
         }
     }
 
