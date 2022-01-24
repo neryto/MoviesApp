@@ -36,7 +36,12 @@ class MovieView
         viewModel.fetchInfo.observe(lifecycleOwner,{
             when(it){
                 is DataState.Success -> {
+                    mBinding.emptyStateContainer.visibility = if (it.data.isEmpty()) View.VISIBLE
+                    else View.GONE
+
                     mBinding.recycler.apply {
+                        visibility = if (it.data.isEmpty()) View.GONE
+                        else View.VISIBLE
                         adapter = MovieAdapter(it.data,onItemClicked)
                         val flexBox  =
                             FlexboxLayoutManager(App.applicationContext(), FlexDirection.COLUMN)

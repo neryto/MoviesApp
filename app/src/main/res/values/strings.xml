@@ -3,4 +3,5 @@
     <string name="playing_now_title">Playing Now</string>
     <string name="most_popular_title">Most Popular</string>
     <string name="rate">Rate: %s</string>
+    <string name="no_movies">There are no movies to show</string>
 </resources>
